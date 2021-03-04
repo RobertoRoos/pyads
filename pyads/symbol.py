@@ -291,6 +291,10 @@ class AdsSymbol:
 
             scalar_type = AdsSymbol.get_type_from_str(scalar_type_str)
 
+            if scalar_type == constants.PLCTYPE_STRING:
+                return scalar_type  # Do not include the length - This way the pyads_ex
+                # functions will return a python string, instead of a byte array
+
             if scalar_type:
                 return scalar_type * size
 
