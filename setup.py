@@ -115,4 +115,6 @@ setup(
         "install": CustomInstall,
         "bdist_wheel": CustomBDistWheel,
     },
+    license="MIT",
+    license_files=["LICENSE"],
 )

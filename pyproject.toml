@@ -19,11 +19,15 @@ classifiers = [
     "Operating System :: Microsoft :: Windows",
     "Operating System :: POSIX :: Linux",
 ]
-license = "MIT"
-license-files = ["LICENSE"]
-dynamic = ["version"]
+# Skip `license` and `license-files` entriies to maintain compatibility with Python 3.8's version of setuptools
+# Instead we can specify the license specifier through `setup.py`
+# The license filename is standard, it should get picked without being specified here
+dynamic = [
+    "version",
+    "license",
+]
 dependencies = []
-requires-python = ">= 3.9,<4"
+requires-python = ">= 3.8,<4"
 # Outdated Python versions are still included, until they cause problems (after which they will bed dropped)
 # Python 3.8 cannot be used anymore because of a setuptoools minimum version
 
@@ -51,8 +55,7 @@ Repository = "https://github.com/stlehmann/pyads"
 Documentation = "https://pyads.readthedocs.io"
 
 [build-system]
-requires = ["setuptools >= 77.0.3", "wheel"]
-# ^ Support for new `license` format
+requires = ["setuptools >= 61.0", "wheel"]
 build-backend = "setuptools.build_meta"
 
 [tool.setuptools]
